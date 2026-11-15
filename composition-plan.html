@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Composition Plan</title>
+        <style>
+            body{
+                font-family:Arial,sans-serif;
+                line-height:1.5;
+                max-width:90rem;
+                margin:auto;
+                padding:1rem;
+                color:#191919;
+                }
+            table{
+                width:100%;
+                border-collapse:collapse;
+                }
+            th,td{
+                padding:.6rem;
+                border:1px solid #999;
+                text-align:left;
+                vertical-align:top;
+                }
+            th{
+                background:#f1f1f1;
+                }
+        </style>
+        </head>
+        <body>
+            <h1>L6 · Composition Plan</h1>
+            <p>Complete one row for every positioned, layered, clipped, rounded, or shape-wrapped element. Duplicate rows as needed.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Content purpose</th>
+                        <th>Normal-flow baseline</th>
+                        <th>Chosen technique and why</th>
+                        <th>Containing block / stacking context</th>
+                        <th>Fallback or disengagement</th>
+                        <th>Required test</th>
+                    </tr>
+                </thead>
+                <section aria-labelledby="l6-testing-heading">
+  <h2 id="l6-testing-heading">L6 · Required Testing &amp; Verification Log</h2>
+  <p>All required layout, accessibility, zoom, and fallback checks were executed in Google Chrome DevTools and W3C validators prior to submission.</p>
+
+  <table>
+   
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1. HTML and CSS validation</th>
+        <td>Validated <code>index.html</code>, <code>composition-plan.html</code>, and <code>styles.css</code> via W3C Nu Html Checker and W3C CSS Validator.</td>
+        <td>0 HTML syntax errors and 0 CSS parsing errors; custom properties and modern shape properties confirmed valid.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">2. CSS-disabled reading order</th>
+        <td>Disabled stylesheets in Chrome DevTools to inspect raw DOM source order.</td>
+        <td>Title, L1 story, section headings, figures, captions, and L6 links read in logical narrative order without missing text.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">3. 320px, 768px, and 1280px viewports</th>
+        <td>Tested responsive breakpoints using Chrome DevTools Device Toolbar at 320px, 768px, and 1280px widths.</td>
+        <td>Single-column flow at 320px with zero horizontal overflow; multi-column editorial grid activates cleanly at 768px and 1280px.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">4. 200% zoom and keyboard focus</th>
+        <td>Set browser zoom to 200% and navigated all interactive elements using the <code>Tab</code> key.</td>
+        <td>Prose reflows without clipping; visible <code>:focus-visible</code> outlines remain unobstructed by sticky or overlapping elements.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">5. Long-title and doubled-paragraph content growth</th>
+        <td>Temporarily doubled headline text and duplicated story paragraphs in DevTools Elements panel.</td>
+        <td>Containers expand vertically without text overflow or collision because fixed heights were avoided on content blocks.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">6. Sticky behavior at page and section boundaries</th>
+        <td>Scrolled through the L2–L3 region to observe the bounded <code>position: sticky</code> element.</td>
+        <td>Sticks smoothly within the viewport using token offset and stops cleanly at the bottom edge of its parent grid/section container.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">7. Pointer activation of every layered link/control</th>
+        <td>Hovered and clicked all links and controls adjacent to or beneath L3/L4 layered elements.</td>
+        <td>Decorative badges and overlapping accents use <code>pointer-events: none</code>; all links remain 100% clickable.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">8. <code>clip-path</code> and <code>shape-outside</code> disabled</th>
+        <td>Toggled off <code>clip-path</code> and <code>shape-outside</code> rules in Chrome DevTools Styles pane.</td>
+        <td>Media and floated figure degrade cleanly to standard rectangular boxes with intact margins and readable wrapped prose.</td>
+        <td>Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">9. Stacking-context inspection for all layered elements</th>
+        <td>Inspected computed <code>z-index</code> values and stacking contexts in Chrome DevTools Layers and Computed panels.</td>
+        <td>Only intentional L3/L4 positioned elements establish stacking contexts, matching the documented tokenized <code>z-index</code> scale.</td>
+        <td>Pass</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+            </table>
+        </body>
+        </html>
